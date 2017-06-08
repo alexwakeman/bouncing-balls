@@ -1,0 +1,44 @@
+{
+  "name": "yieldify-test",
+  "version": "1.0.0",
+  "description": "Bouncing balls hands-on coding test",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jasmine": "^2.5.51",
+    "browserify": "^14.4.0",
+    "browserify-shim": "^3.8.14",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-typescript": "^3.1.7",
+    "jasmine-core": "^2.6.3",
+    "karma": "^1.7.0",
+    "karma-browserify": "^5.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "ts-loader": "^2.1.0",
+    "tsify": "^3.0.1",
+    "typescript": "^2.3.4",
+    "typings": "^2.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  },
+  "browserify-shim": {
+    "external": "global:External"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "coding",
+    "test"
+  ],
+  "author": "Alex Wakeman",
+  "license": "MIT"
+}
