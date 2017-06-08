@@ -52,16 +52,16 @@ export class TrigUtils {
     }
 
     /**
-     * Tests if the current `pos` is touching or outside the left and right side of the bounding box
-     * @param pos
+     * Tests if the ball is touching or outside the left and right side of the bounding box.
+     * Reflects the velocity vector y-axis by 90 degrees, and reflects the x-axis if touching the sides
      * @param ball
      * @param leftLimit
      * @param rightLimit
      * @returns {Vector2D}
      */
-    static testSides(pos: Vector2D, ball: Ball, leftLimit: number, rightLimit: number): Vector2D {
+    static testSides(ball: Ball, leftLimit: number, rightLimit: number): Vector2D {
         const diameter = ball.radius * 2;
-        if (pos.x < leftLimit || pos.x > (rightLimit - diameter)) {
+        if (ball.position.x < leftLimit || ball.position.x > (rightLimit - diameter)) {
             return new Vector2D(-ball.velocity.x, -Math.sin(RIGHT_ANGLE));
         }
         return ball.velocity;
@@ -69,13 +69,12 @@ export class TrigUtils {
 
     /**
      * If ball hits the top, reflect it back down
-     * @param pos
      * @param ball
      * @param ceiling
      * @returns {Vector2D}
      */
-    static testCeiling(pos: Vector2D, ball: Ball, ceiling: number) {
-        if (pos.y >= ceiling) {
+    static testCeiling(ball: Ball, ceiling: number) {
+        if (ball.position.y >= ceiling) {
             return new Vector2D(ball.velocity.x, -ball.velocity.y);
         }
         return ball.velocity;
@@ -83,13 +82,12 @@ export class TrigUtils {
 
     /**
      * If the ball hits the floor, returns boolean to indicate as such
-     * @param pos
      * @param ball
      * @param floor
      * @returns {boolean}
      */
-    static testFloor(pos: Vector2D, ball: Ball, floor: number): boolean {
+    static testFloor(ball: Ball, floor: number): boolean {
         const diameter = ball.radius * 2;
-        return pos.y <= (floor + diameter);
+        return ball.position.y <= (floor + diameter);
     }
 }

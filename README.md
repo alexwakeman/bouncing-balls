@@ -6,4 +6,4 @@
 
 
 # Test runner
- - TBC `:)`
+`npm run test`

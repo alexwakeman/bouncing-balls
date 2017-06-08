@@ -69,14 +69,14 @@ export class Animate {
         this.balls.forEach((ball: Ball) => {
             let positionUpdate: Vector2D,
                 documentPositionUpdate: Vector2D;
-            ball.reachedFloor = TrigUtils.testFloor(ball.position, ball, this.floor);
+            ball.reachedFloor = TrigUtils.testFloor(ball, this.floor);
             if (ball.reachedFloor) {
                 ball.velocity = new Vector2D(0, 0);
                 ball.elem.classList.add('bounce');
                 return;
             }
-            ball.velocity = TrigUtils.testSides(ball.position, ball, this.leftLimit, this.rightLimit);
-            ball.velocity = TrigUtils.testCeiling(ball.position, ball, this.ceiling);
+            ball.velocity = TrigUtils.testSides(ball, this.leftLimit, this.rightLimit);
+            ball.velocity = TrigUtils.testCeiling(ball, this.ceiling);
             positionUpdate = TrigUtils.addVectors(ball.position, ball.velocity);
             positionUpdate.y -= GRAVITY_COEFFICIENT; // add gravity effect
             ball.position = positionUpdate;
